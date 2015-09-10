@@ -13,42 +13,59 @@
 		<script language="JavaScript" src="http://www.oddcast.com/support/scripts/master.js"></script>
 		<script src="http://vhss-d.oddcast.com/admin/includes/vhss_api_v2.js" type="text/javascript"></script>
 		<script src="http://vhss-d.oddcast.com/admin/includes/vhss_api_cursor_other.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
          
-  <style>
-        div#avt-block {
-            position: fixed;
-            bottom: -1%;
-            right: 1%;
-            height: 400px;
-            width: 400px;
-            background-color: transparent;
-            z-index: 50;
-            padding: 5px;
+	  <style>
+			div.avt-block {
+				position: fixed;
+				bottom:1%;
+				right: 1%;
+				height: 442px;
+				width: 419px;
+				background-color: rgba(192,192,192,0.3);
+				z-index: 50;
+				padding: 8px;
+				text-align:center;
+				border-radius:1px;
+				color:#ffffff;
+				margin-top:5px;
+				border:1px #ddd solid;
+				
+			}
+		   div.title {
+			   
+				position: fixed;
+				font-weight:bold;
+				color:#ffffff;
+				height: 15px;
+				width: 415px;
+				z-index: 50;
+				padding: 8px;
+				text-align:center;
 			
-			
-        }
-      
-    </style>
-	
-	<link rel="stylesheet" href="css/bootstrap.css">
-    <script src="AIG_files/jquery.js"></script>
-    <script src="AIG_files/bootstrap.js"></script>
-    
-	<style>
-        .botblock{
-            position: fixed;
-            bottom: 1%;
-            right: 1%;
-            height: 400px;
-            width: 400px;
-            background-color: transparent;
-            z-index: 50;
-            padding: 1px;
-        }
-        div#bot {
-            width: 100%;
-        }
-    </style>
+			}
+		</style> 
+		
+		
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="AIG_files/jquery.js"></script>
+		<script src="AIG_files/bootstrap.js"></script>
+		
+		<style>
+			.botblock{
+				position: fixed;
+				bottom: 1%;
+				right: 1%;
+				height: 400px;
+				width: 400px;
+				background-color: transparent;
+				z-index: 50;
+				padding: 1px;
+			}
+			div#bot {
+				width: 100%;
+			}
+		</style>
 	<script language="JavaScript" type="text/javascript" src="http://vhss-d.oddcast.com/vhost_embed_functions_v2.php?acc=5339897&js=1"></script>
 
 
@@ -207,7 +224,8 @@
             </div>
 			
 			
-			<div id="avt-block" class=" col-md-6 col-xs-12">
+			<div class=" col-md-6 col-xs-12 avt-block">
+			    <div class="avt-title" style="padding-bottom:5px;color:#000;">Minimize</div>
                 <div id="botblock">
 
 				
@@ -227,7 +245,27 @@
 
 
             </div>
-
+            <script>
+			<!--script of the avatar's div-->
+		
+						$( "div.avt-block" ).click(function() {
+						if ( $(this).height() > 100){
+						      $( this ).animate({width: 419,height:40 }, 1000 );
+							  $('#botblock').hide();
+							  $('.avt-title').text("Maximize ");
+						}
+							
+            
+						else{
+						 $( this ).animate({ height: 442,width: 419 }, 1000 );
+							   $('#botblock').show();
+							   $('.avt-title').text("Minimize");
+						}
+							  
+					    });
+			</script>
+			
+			
             
 
             <div class="row" style="width:100%;">
